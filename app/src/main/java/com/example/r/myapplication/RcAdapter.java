@@ -20,8 +20,6 @@ public class RcAdapter extends RecyclerView.Adapter<RcAdapter.RcViewHolder> {
             ww = (TextView) itemView.findViewById(R.id.ww);
         }
     }
-
-
     public RcAdapter(String[] dataset) {
         mDataset = dataset;
     }
