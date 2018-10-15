@@ -13,6 +13,7 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NavigableMap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,11 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
     List<NewObject.Workers> w = new ArrayList<>();
 
-
-
-
-
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,26 +30,25 @@ public class MainActivity extends AppCompatActivity {
 
         for (int i = 0;i < 10; i++){
             NewObject.Workers name = new NewObject.Workers();
+            NewObject.Workers femeli = new NewObject.Workers();
             name.name = "Rus: " + String.valueOf(i);
+            femeli.femeli = "Bulatov: " + String.valueOf(i);
+            w.add(femeli);
             w.add(name);
-            Log.d("Добавления в массив",  String.valueOf(i));
+            Log.d("Добавления в массив 1: ",  String.valueOf(femeli.femeli));
+            Log.d("Добавления в массив 2: ",  String.valueOf(name.name));
         }
 
-        String[] myDataset = {
-                "Уральск",
-                "Атырау",
-        };
+
         mRecyclerView = (RecyclerView) findViewById(R.id.rc);
         mRecyclerView.setHasFixedSize(true);
 
         mLayoutManager = new  LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new RcAdapter(myDataset);
+        mAdapter = new RcAdapter(w);
         mRecyclerView.setAdapter(mAdapter);
     }
-
-
 
 
     public boolean onCreateOptionsMenu(Menu menu) {

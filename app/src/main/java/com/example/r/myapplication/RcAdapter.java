@@ -1,26 +1,30 @@
 package com.example.r.myapplication;
 
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class RcAdapter extends RecyclerView.Adapter<RcAdapter.RcViewHolder> {
 
-    private String[] mDataset;
+    private List<NewObject.Workers> mDataset;
 
     public static class RcViewHolder extends RecyclerView.ViewHolder {
         public TextView mTexView, ww;
 
         public RcViewHolder(View itemView) {
             super(itemView);
+
             mTexView = (TextView) itemView.findViewById(R.id.textview);
             ww = (TextView) itemView.findViewById(R.id.ww);
         }
     }
-    public RcAdapter(String[] dataset) {
+    public RcAdapter(List<NewObject.Workers> dataset) {
         mDataset = dataset;
     }
     @Override
@@ -34,12 +38,15 @@ public class RcAdapter extends RecyclerView.Adapter<RcAdapter.RcViewHolder> {
     
     @Override
     public void onBindViewHolder(RcAdapter.RcViewHolder holder, int position) {
-        holder.mTexView.setText(mDataset[position]);
+        NewObject.Workers workers = mDataset.get(position);
+
+        holder.mTexView.setText(workers.name);
+        holder.ww.setText(workers.femeli);
     }
 
 
     @Override
     public int getItemCount() {
-        return mDataset.length;
+        return mDataset.size();
     }
 }
