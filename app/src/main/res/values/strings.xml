@@ -2,4 +2,5 @@
     <string name="app_name">My Application</string>
     <string name="add">Добавить</string>
     <string name="Setting">Настройки</string>
+    <string name="Update">Обновить</string>
 </resources>

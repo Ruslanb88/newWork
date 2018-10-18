@@ -1,4 +1,5 @@
-package com.example.rbula.newproject;
+package com.example.r.myapplication;
+
 
 import android.app.Activity;
 import android.content.ContentValues;
@@ -13,10 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.view.View.OnClickListener;
 import android.widget.GridView;
-
-
 import java.util.ArrayList;
-import java.util.Arrays;
 
 
 public class FormAdd extends Activity implements OnClickListener{
@@ -52,7 +50,6 @@ public class FormAdd extends Activity implements OnClickListener{
 
     }
 
-
     public void onClick(View v) {
         String name = etName.getText().toString();
         String email = etEmail.getText().toString();
@@ -61,6 +58,9 @@ public class FormAdd extends Activity implements OnClickListener{
         SQLiteDatabase database = dbHelper.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
+        ArrayList<String> data=new ArrayList<String>();
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data);
+
 
         switch (v.getId()) {
             case R.id.btnAdd:
@@ -96,8 +96,6 @@ public class FormAdd extends Activity implements OnClickListener{
                 break;
 
             case R.id.btnDB:
-                ArrayList<String> data=new ArrayList<String>(Arrays.asList("#","Имя","Почта"));
-                ArrayAdapter<String> adapter=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data);
 
                 gv = (GridView)findViewById(R.id.gridView1);
                 gv.setAdapter(adapter);
@@ -120,7 +118,6 @@ public class FormAdd extends Activity implements OnClickListener{
                     Log.e("name1", String.valueOf(name1));
                     Log.e("email1", String.valueOf(email1));
                 }
-
                 adapter.notifyDataSetChanged();
             case R.id.btnUpdate:
                 if (id.equalsIgnoreCase("")){
@@ -132,5 +129,8 @@ public class FormAdd extends Activity implements OnClickListener{
                 Log.d("mLog", "updates rows count = " + updCount);
         }
         dbHelper.close();
+
+
      }
+
 }

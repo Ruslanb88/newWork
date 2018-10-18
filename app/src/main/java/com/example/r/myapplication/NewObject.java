@@ -1,5 +1,6 @@
 package com.example.r.myapplication;
 
+
 public class NewObject {
     public static class Workers{
         public String name;
