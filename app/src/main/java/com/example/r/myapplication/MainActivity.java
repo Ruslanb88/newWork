@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.GridView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,24 +22,24 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
+
     List<NewObject.Workers> w = new ArrayList<>();
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout);
 
         for (int i = 0;i < 10; i++){
             NewObject.Workers name = new NewObject.Workers();
             NewObject.Workers femeli = new NewObject.Workers();
-            name.name = "Rus: " + String.valueOf(i);
-            femeli.femeli = "Bulatov: " + String.valueOf(i);
+            name.name = "Уральск: " + String.valueOf(i);
+            femeli.femeli = "Атырау: " + String.valueOf(i);
             w.add(femeli);
             w.add(name);
             Log.d("Добавления в массив 1: ",  String.valueOf(femeli.femeli));
             Log.d("Добавления в массив 2: ",  String.valueOf(name.name));
         }
-
 
         mRecyclerView = (RecyclerView) findViewById(R.id.rc);
         mRecyclerView.setHasFixedSize(true);
