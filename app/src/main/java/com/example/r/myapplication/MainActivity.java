@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -48,7 +49,10 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.rc);
         mRecyclerView.setHasFixedSize(true);
 
-        mLayoutManager = new  LinearLayoutManager(this);
+//        mLayoutManager = new  LinearLayoutManager(this);
+//        mLayoutManager = new  LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        mLayoutManager = new GridLayoutManager(this,2, GridLayoutManager.VERTICAL, false);
+
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         mAdapter = new RcAdapter(w);

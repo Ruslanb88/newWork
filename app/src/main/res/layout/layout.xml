@@ -4,20 +4,12 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
-    <GridLayout
-        android:columnCount="2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp" />
 
-
-    </GridLayout>
 
 </LinearLayout>
