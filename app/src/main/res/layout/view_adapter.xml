@@ -5,17 +5,18 @@
     android:layout_centerVertical="true"
     android:orientation="vertical">
 
-
         <TextView
             android:id="@+id/textview"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:textSize="20dp"
             android:text="sasds" />
 
         <TextView
             android:id="@+id/ww"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:textSize="20dp"
             android:text="wewewwewewe" />
 
 </RelativeLayout>

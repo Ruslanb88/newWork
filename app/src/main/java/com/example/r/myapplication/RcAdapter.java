@@ -17,6 +17,13 @@ public class RcAdapter extends RecyclerView.Adapter<RcAdapter.RcViewHolder> {
     public static class RcViewHolder extends RecyclerView.ViewHolder {
         public TextView mTexView, ww;
 
+        public void setText(String text){
+            ww.setText(text);
+        }
+        public void setTitle(String title){
+            mTexView.setText(title);
+        }
+
         public RcViewHolder(View itemView) {
             super(itemView);
 
@@ -24,6 +31,9 @@ public class RcAdapter extends RecyclerView.Adapter<RcAdapter.RcViewHolder> {
             ww = (TextView) itemView.findViewById(R.id.ww);
         }
     }
+
+
+
     public RcAdapter(List<NewObject.Workers> dataset) {
         mDataset = dataset;
     }

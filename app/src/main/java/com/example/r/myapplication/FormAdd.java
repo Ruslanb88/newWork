@@ -14,15 +14,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.view.View.OnClickListener;
 import android.widget.GridView;
+
 import java.util.ArrayList;
+import java.util.List;
 
 
-public class FormAdd extends Activity implements OnClickListener{
+public class FormAdd extends Activity implements OnClickListener {
     DBHelper dbHelper;
     Button btnUpdate, btnDB, btnAdd, btnRead, btnClear;
     EditText etName, etEmail, etID;
     GridView gv;
-
 
 
     @Override
@@ -58,8 +59,8 @@ public class FormAdd extends Activity implements OnClickListener{
         SQLiteDatabase database = dbHelper.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        ArrayList<String> data=new ArrayList<String>();
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data);
+        ArrayList<String> data = new ArrayList<String>();
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data);
 
 
         switch (v.getId()) {
@@ -97,7 +98,7 @@ public class FormAdd extends Activity implements OnClickListener{
 
             case R.id.btnDB:
 
-                gv = (GridView)findViewById(R.id.gridView1);
+                gv = (GridView) findViewById(R.id.gridView1);
                 gv.setAdapter(adapter);
 
                 Cursor cursor1 = database.rawQuery(String.format("SELECT * FROM %s", DBHelper.TABLE_CONTACTS), null);
@@ -114,23 +115,22 @@ public class FormAdd extends Activity implements OnClickListener{
                     data.add(String.valueOf(name1));
                     data.add(String.valueOf(email1));
 
+
                     Log.e("identifier", String.valueOf(identifier));
                     Log.e("name1", String.valueOf(name1));
                     Log.e("email1", String.valueOf(email1));
                 }
                 adapter.notifyDataSetChanged();
             case R.id.btnUpdate:
-                if (id.equalsIgnoreCase("")){
+                if (id.equalsIgnoreCase("")) {
                     break;
                 }
                 contentValues.put(DBHelper.KEY_MAIL, email);
                 contentValues.put(DBHelper.KEY_NAME, name);
-                int updCount = database.update(DBHelper.TABLE_CONTACTS, contentValues, DBHelper.KEY_ID + "= ?", new String[] {id});
+                int updCount = database.update(DBHelper.TABLE_CONTACTS, contentValues, DBHelper.KEY_ID + "= ?", new String[]{id});
                 Log.d("mLog", "updates rows count = " + updCount);
         }
         dbHelper.close();
-
-
-     }
+    }
 
 }

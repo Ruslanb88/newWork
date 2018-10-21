@@ -29,11 +29,11 @@ public class MainActivity extends AppCompatActivity {
 
     List<NewObject.Workers> w = new ArrayList<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout);
-
 
         for (int i = 0;i < 10; i++){
             NewObject.Workers name = new NewObject.Workers();
